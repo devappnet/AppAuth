@@ -23,7 +23,8 @@ namespace App.Application.Services
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, request.Username)
+                        new Claim(ClaimTypes.Name, request.Username),
+                        new Claim("Permission",request.Username == "dev3"?"0x1":"0x0")
                     };
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

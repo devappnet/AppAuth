@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using App.WebApi.Configuration;
 
 namespace App.WebApi.Controllers.Auth
 {
@@ -84,6 +85,7 @@ namespace App.WebApi.Controllers.Auth
         }
         [HttpGet("user")]
         [Authorize]
+        [Permission(PermissionConstants.Auth.View)]
         public IActionResult GetUser()
         {
             return Ok(new ResponseBase<string>
